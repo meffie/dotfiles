@@ -1,0 +1,54 @@
+[user]
+	name = Michael Meffie
+	email = mmeffie@sinenomine.net
+[core]
+	editor = vim
+[alias]
+	#
+	# short-cuts
+	#
+	l = log -n16 --oneline
+	ls = log --oneline
+	co = checkout
+	cp = cherry-pick
+	ci = commit
+	a = add
+	s = status
+	b = branch
+	d = diff
+	#
+	# my aliases
+	#
+	amend = commit --amend
+	mend = commit --amend --no-edit
+	nuke = clean -f -d -x -q
+	staged = diff --cached
+	puch = push
+	look = show
+	#
+	# diff tool
+	#
+	meld = !/home/mmeffie/bin/git-meld.pl
+	#
+	# openafs gerrit helpers
+	#
+	gf = !/home/mmeffie/bin/gerrit-fetch
+	gerrit-fetch = !/home/mmeffie/bin/gerrit-fetch
+	gerrit-checkout = !/home/mmeffie/bin/gerrit-checkout
+	gerrit-push = push gerrit HEAD:refs/for/master
+	gerrit-push-stable = push gerrit HEAD:refs/for/openafs-stable-1_6_x
+	#
+	# dealing with branches
+	#
+	archive-branch = !/home/mmeffie/bin/archive-branch
+[color]
+	ui = true
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	main-window-view = HistoryView
+	file-view-hpane-position = 304
+	history-view-vpane-position = 371
+	file-view-vpane-position = 397
+[merge]
+	conflictstyle = diff3
