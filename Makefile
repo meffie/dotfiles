@@ -14,17 +14,16 @@ help:
 install: config keys hosts
 
 config:
-	test -f ~/.bashrc && mv ~/.bashrc ~/.bashrc.save
+	./save-files.sh ~/.bashrc ~/.gitconfig ~/.vimrc \
+	                ~/.ssh/authorized_keys ~/.ssh/config
+	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	stow --stow --target ~ bash
 	stow --stow --target ~ git
 	stow --stow --target ~ vim
-	mkdir -p ~/.ssh
-	chmod 700 ~/.ssh
 	stow --stow --target ~/.ssh ssh
 
 keys:
-	mkdir -p ~/.ssh
-	chmod 700 ~/.ssh
+	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	scp $(KEYS) ~/.ssh
 
 hosts:
