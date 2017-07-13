@@ -1,0 +1,12 @@
+GSSAPIAuthentication no
+identityfile ~/.ssh/mmeffie-sna2
+
+host meffie
+  hostname www.meffie.org
+  user mike
+  identityfile ~/.ssh/meffie
+
+host gerrit.openafs.org
+  user mmeffie
+  identityfile ~/.ssh/openafs-gerrit
+  port 29418
