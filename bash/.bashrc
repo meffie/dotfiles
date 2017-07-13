@@ -122,4 +122,3 @@ export PAGER
 
 ulimit -c unlimited
 
-export GERRIT="yes"  # add gerrit change id

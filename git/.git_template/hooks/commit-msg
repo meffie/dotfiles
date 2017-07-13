@@ -104,6 +104,20 @@ _gen_ChangeId() {
 	git hash-object -t commit --stdin
 }
 
-if [ "$GERRIT" = "yes" ]; then
-    add_ChangeId
-fi
+_main() {
+	case "$GERRIT" in
+	yes) # enabled
+		add_ChangeId
+		;;
+	no) # disabled
+		;;
+	*)  # check
+		if git config --local --list | grep '^remote.*openafs.git$' >/dev/null
+		then
+			add_ChangeId
+		fi
+		;;
+	esac
+}
+
+_main
