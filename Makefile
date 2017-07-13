@@ -5,11 +5,12 @@ KEYS=mmeffie@scp.sinenomine.net:/afs/sinenomine.net/user/mmeffie/private/ssh/*
 help:
 	@echo "usage: make <target>"
 	@echo "targets:"
-	@echo "install - install all"
-	@echo "config  - install config file links"
-	@echo "keys    - install ssh keys"
-	@echo "hosts   - update global /etc/hosts (uses sudo)"
-	@echo "clean   - remove generated files"
+	@echo "  install - install links, update keys and hosts"
+	@echo "  config  - install links for config files"
+	@echo "  keys    - download public and private keys"
+	@echo "  hosts   - update /etc/hosts (requires sudo)"
+	@echo "  help    - show targets"
+	@echo "  clean   - remove generated files"
 
 install: config keys hosts
 
