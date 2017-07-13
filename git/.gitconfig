@@ -52,3 +52,5 @@
 	file-view-vpane-position = 397
 [merge]
 	conflictstyle = diff3
+[init]
+	templatedir = ~/.git_template
