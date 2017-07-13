@@ -7,7 +7,7 @@ help:
 	@echo "targets:"
 	@echo "  install - install links, update keys and hosts"
 	@echo "  config  - install links for config files"
-	@echo "  keys    - download public and private keys"
+	@echo "  keys    - download public and private keys (requires password)"
 	@echo "  hosts   - update /etc/hosts (requires sudo)"
 	@echo "  help    - show targets"
 	@echo "  clean   - remove generated files"
