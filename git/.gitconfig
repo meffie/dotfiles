@@ -24,24 +24,10 @@
 	mend = commit --amend --no-edit
 	nuke = clean -f -d -x -q
 	staged = diff --cached
-	puch = push
-	look = show
 	#
 	# diff tool
 	#
-	meld = !/home/mmeffie/bin/git-meld.pl
-	#
-	# openafs gerrit helpers
-	#
-	gf = !/home/mmeffie/bin/gerrit-fetch
-	gerrit-fetch = !/home/mmeffie/bin/gerrit-fetch
-	gerrit-checkout = !/home/mmeffie/bin/gerrit-checkout
-	gerrit-push = push gerrit HEAD:refs/for/master
-	gerrit-push-stable = push gerrit HEAD:refs/for/openafs-stable-1_6_x
-	#
-	# dealing with branches
-	#
-	archive-branch = !/home/mmeffie/bin/archive-branch
+	#meld = !/home/mmeffie/bin/git-meld.pl
 [color]
 	ui = true
 [giggle]
