@@ -18,6 +18,18 @@
 # limitations under the License.
 #
 
+#
+# NOTE: Enable/disable this commit hook with git config
+#
+# To enable:
+#
+#    git config gerrit.add-change-id true
+#
+# To disable:
+#
+#    git config gerrit.add-change-id false
+#
+
 CHANGE_ID_AFTER="Bug|Issue"
 MSG="$1"
 
@@ -105,18 +117,9 @@ _gen_ChangeId() {
 }
 
 _main() {
-	case "$GERRIT" in
-	yes) # enabled
-		add_ChangeId
-		;;
-	no) # disabled
-		;;
-	*)  # check
-		if git config --local --list | grep '^remote.*openafs.git$' >/dev/null
-		then
-			add_ChangeId
-		fi
-		;;
+	case "`git config --get gerrit.add-change-id`" in
+	true|yes|on|1) add_ChangeId ;;
+	*) ;;
 	esac
 }
 
