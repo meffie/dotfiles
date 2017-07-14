@@ -9,9 +9,11 @@ filetype plugin on
 syntax on
 nnoremap ; :
 
-" show tabs as arrow glyphs
-set list
-set listchars=tab:\►\ 
+if has("xxx_multi_byte")
+    " show tabs as arrow glyphs
+    set list
+    set listchars=tab:\►\ 
+endif
 
 " c
 au BufNewFile,BufRead *.[ch] set noexpandtab
