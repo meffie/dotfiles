@@ -15,7 +15,7 @@ help:
 install: config keys hosts
 
 config:
-	./save-files.sh ~/.bashrc ~/.gitconfig ~/.vimrc ~/.indent.pro \
+	./save-files.sh ~/.bashrc ~/.bash_aliases ~/.gitconfig ~/.vimrc ~/.indent.pro \
 	                ~/.ssh/authorized_keys ~/.ssh/config
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	stow --stow --target ~ bash
