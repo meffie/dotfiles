@@ -16,6 +16,7 @@
 	s = status
 	b = branch
 	d = diff
+	gf = gerrit-fetch
 	#
 	# my aliases
 	#
