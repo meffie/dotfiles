@@ -13,9 +13,15 @@ function! ShowTabsFn()
     set listchars=tab:>-
 endfunction
 
+function! FancyShowTabsFn()
+    set list
+    set listchars=tab:\►\ 
+endfunction
+
 function! HideTabsFn()
     set nolist
 endfunction
 
 command! ShowTabs call ShowTabsFn()
+command! FancyShowTabs call FancyShowTabsFn()
 command! HideTabs call HideTabsFn()
