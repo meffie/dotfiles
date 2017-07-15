@@ -13,7 +13,7 @@ set tabstop=4       " Number of visual spaces per TAB.
 set softtabstop=4   " Number of spaces in tab when editing.
 set expandtab       " Expand tab-key to space chars.
 filetype plugin on  " Enable ~/.vim/ftplugins/*.vim plugins to
-                    " overide tab and indent settings by language.
+                    " override tab and indent settings by language.
 " -- Temporary files --
 " The following set the paths for backup, undo, and swp files
 " create vim to avoid littering the current directory with these
