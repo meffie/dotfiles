@@ -23,6 +23,7 @@ install: link /etc/hosts
 link: keys
 	./save-files.sh $(SAVE)
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
+	mkdir -p ~/.vim ~/.vim/.undo ~/.vim/.backup ~/.vim/.swap
 	stow --target ~ bash
 	stow --target ~ git
 	stow --target ~ vim

@@ -1,29 +1,23 @@
-colorscheme evening
-set modeline
-set hlsearch
-set nu
-set splitright
+" -- General behavior --
+set nocompatible    " Be vim instead of vi.
+set hidden          " Disable 'no write since last change' error when changing buffers.
+set number          " enable line numbering
+syntax on           " enable syntax highlighting
 
-set nocompatible
-filetype plugin on
-syntax on
-nnoremap ; :
+" -- Appearance --
+colorscheme evening " Just a preference
+set hlsearch        " Highlight the last search results.
 
-" c
-au BufNewFile,BufRead *.[ch] set noexpandtab
-" python
-au BufNewFile,BufRead *.py set expandtab
-au BufNewFile,BufRead *.py set tabstop=4
-" md (markdown)
-au BufNewFile,BufRead *.md set filetype=markdown
-au BufNewFile,BufRead *.mdwn set filetype=markdown
-
-
-" folding settings
-"set foldmethod=indent   "fold based on indent
-"set foldnestmax=10      "deepest fold is 10 levels
-"set nofoldenable        "dont fold by default
-set foldlevel=99         "unfold everything
-
-" shell settings
-"set makeprg=make\ myobj.o
+" -- Whitespace --
+set tabstop=4       " Number of visual spaces per TAB.
+set softtabstop=4   " Number of spaces in tab when editing.
+set expandtab       " Expand tab-key to space chars.
+filetype plugin on  " Enable ~/.vim/ftplugins/*.vim plugins to
+                    " overide tab and indent settings by language.
+" -- Temporary files --
+" The following set the paths for backup, undo, and swp files
+" create vim to avoid littering the current directory with these
+" tmp files.
+set undodir=~/.vim/.undo,.
+set backupdir=~/.vim/.backup,.,~/tmp,~/
+set directory=~/.vim/.swap,.,~/tmp,/var/tmp,/tmp
