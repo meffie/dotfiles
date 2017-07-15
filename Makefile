@@ -44,7 +44,7 @@ keys:
 	mkdir -p keys
 	scp $(KEYS) keys/
 
-hosts/hosts:
+hosts/hosts: hosts/hosts.d/*
 	perl -lne 'print unless /### BEGIN ###/ .. /### END ###/' /etc/hosts >hosts/hosts
 	echo '### BEGIN ###' >>hosts/hosts
 	cat hosts/hosts.d/* >>hosts/hosts
