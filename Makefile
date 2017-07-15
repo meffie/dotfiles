@@ -1,31 +1,26 @@
-.PHONY: help install remove link links keys hosts
+.PHONY: help install remove link unlink
 
-KEYS=mmeffie@scp.sinenomine.net:/afs/sinenomine.net/user/mmeffie/private/ssh/*
+KEYS=\
+  mmeffie@scp.sinenomine.net:/afs/sinenomine.net/user/mmeffie/private/ssh/*
 SAVE=\
-~/.bash_aliases \
-~/.bashrc \
-~/bin \
-~/.gitconfig \
-~/.indent.pro \
-~/.ssh/authorized_keys \
-~/.ssh/config \
-~/.vimrc
+  ~/.bash_aliases \
+  ~/.bashrc \
+  ~/bin \
+  ~/.gitconfig \
+  ~/.indent.pro \
+  ~/.ssh/authorized_keys \
+  ~/.ssh/config \
+  ~/.vimrc
 
 help:
 	@echo "usage: make <target>"
 	@echo "main targets:"
-	@echo "  install - install everything"
-	@echo "  remove  - remove (just links)"
-	@echo "other targets:"
-	@echo "  links   - create symlinks to configs and scripts"
-	@echo "  keys    - download public and private keys (requires ssh password)"
-	@echo "  hosts   - update /etc/hosts (requires sudo)"
-	@echo "  help    - show targets"
+	@echo "  install - install links"
+	@echo "  remove  - remove links"
 
-install: links keys hosts
+install: link /etc/hosts
 
-link: links # alias
-links:
+link: keys
 	./save-files.sh $(SAVE)
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	stow --target ~ bash
@@ -34,21 +29,32 @@ links:
 	stow --target ~ indent
 	stow --target ~ scripts
 	stow --target ~/.ssh ssh
+	stow --target ~/.ssh keys
 
-remove:
+unlink:
 	stow -D --target ~ bash
 	stow -D --target ~ git
 	stow -D --target ~ vim
 	stow -D --target ~ indent
 	stow -D --target ~ scripts
 	stow -D --target ~/.ssh ssh
-	# todo: cleanup hosts and keys?
+	stow -D --target ~/.ssh keys
 
 keys:
-	mkdir -p ~/.ssh && chmod 700 ~/.ssh
-	scp $(KEYS) ~/.ssh
+	mkdir -p keys
+	scp $(KEYS) keys/
 
-hosts:
-	(cd hosts && ./genhosts.sh > hosts)
+hosts/hosts:
+	perl -lne 'print unless /### BEGIN ###/ .. /### END ###/' /etc/hosts >hosts/hosts
+	echo '### BEGIN ###' >>hosts/hosts
+	cat hosts/hosts.d/* >>hosts/hosts
+	echo '### END ###' >>hosts/hosts
+
+/etc/hosts: hosts/hosts
 	sudo cp hosts/hosts /etc/hosts
-	@rm -f hosts/hosts
+
+remove: unlink
+	perl -lne 'print unless /### BEGIN ###/ .. /### END ###/' /etc/hosts >hosts/hosts
+	sudo cp hosts/hosts /etc/hosts
+	rm -f hosts/hosts
+	rm -rf keys
