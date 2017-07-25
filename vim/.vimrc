@@ -21,3 +21,7 @@ filetype plugin on  " Enable ~/.vim/ftplugins/*.vim plugins to
 set undodir=~/.vim/.undo,.
 set backupdir=~/.vim/.backup,.,~/tmp,~/
 set directory=~/.vim/.swap,.,~/tmp,/var/tmp,/tmp
+
+if filereadable($HOME.'/.vim/prefs')
+    source $HOME/.vim/prefs
+endif
