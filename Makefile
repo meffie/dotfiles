@@ -24,6 +24,7 @@ link: keys
 	./save-files.sh $(SAVE)
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	mkdir -p ~/.vim ~/.vim/.undo ~/.vim/.backup ~/.vim/.swap
+	mkdir -p ~/.pip
 	chmod 600 ssh/config
 	chmod 600 ssh/authorized_keys
 	stow --target ~ bash
@@ -33,6 +34,7 @@ link: keys
 	stow --target ~ scripts
 	stow --target ~/.ssh ssh
 	stow --target ~/.ssh keys
+	stow --target ~/.pip pip
 
 unlink:
 	stow -D --target ~ bash
@@ -42,6 +44,7 @@ unlink:
 	stow -D --target ~ scripts
 	stow -D --target ~/.ssh ssh
 	stow -D --target ~/.ssh keys
+	stop -D --target ~/.pip pip
 
 keys:
 	mkdir -p keys
