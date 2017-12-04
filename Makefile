@@ -10,7 +10,8 @@ SAVE=\
   ~/.indent.pro \
   ~/.ssh/authorized_keys \
   ~/.ssh/config \
-  ~/.vimrc
+  ~/.vimrc \
+  ~/.pythonrc.py
 
 help:
 	@echo "usage: make <target>"
@@ -18,9 +19,9 @@ help:
 	@echo "  install - install links"
 	@echo "  remove  - remove links"
 
-install: link /etc/hosts
+install: keys link /etc/hosts
 
-link: keys
+link:
 	./save-files.sh $(SAVE)
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	mkdir -p ~/.vim ~/.vim/.undo ~/.vim/.backup ~/.vim/.swap
@@ -32,6 +33,7 @@ link: keys
 	stow --target ~ vim
 	stow --target ~ indent
 	stow --target ~ scripts
+	stow --target ~ python
 	stow --target ~/.ssh ssh
 	stow --target ~/.ssh keys
 	stow --target ~/.pip pip
@@ -42,6 +44,7 @@ unlink:
 	stow -D --target ~ vim
 	stow -D --target ~ indent
 	stow -D --target ~ scripts
+	stow -D --target ~ python
 	stow -D --target ~/.ssh ssh
 	stow -D --target ~/.ssh keys
 	stop -D --target ~/.pip pip
@@ -64,3 +67,6 @@ remove: unlink
 	sudo cp hosts/hosts /etc/hosts
 	rm -f hosts/hosts
 	rm -rf keys
+
+clean:
+	rm -rf hosts/hosts
