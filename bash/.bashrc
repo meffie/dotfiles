@@ -32,10 +32,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
 fi
 
-# Custom alias and functions.
+# Custom aliases, functions, and env vars
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 if [ -f ~/.bash_functions ]; then
-    . ~/.bash_function
+    . ~/.bash_functions
+fi
+if [ -f ~/.bash_env ]; then
+    . ~/.bash_env
 fi
