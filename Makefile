@@ -34,6 +34,7 @@ link:
 	stow --target ~ indent
 	stow --target ~ scripts
 	stow --target ~ python
+	stow --target ~ tmux
 	stow --target ~/.ssh ssh
 	stow --target ~/.ssh keys
 	stow --target ~/.pip pip
