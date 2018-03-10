@@ -32,6 +32,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
 fi
 
+# Enable vi keybinding in bash
+set -o vi
+
 # Custom aliases, functions, and env vars
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
