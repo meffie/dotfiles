@@ -1,0 +1,15 @@
+#!/bin/bash
+
+opt_short="yes"
+
+if [ "x$1" = "x" ]; then
+    echo "usage: git gerrit-show <gerrit-id>" 2>&1
+    exit 1
+fi
+
+if [ $opt_short = "yes" ]; then
+    git log --grep="^ *Reviewed-on:.*//gerrit.openafs.org/$1$" --format="$1 %s"
+else
+    git log --grep="^ *Reviewed-on:.*//gerrit.openafs.org/$1$"
+fi
+
