@@ -1,3 +1,0 @@
-#!/usr/bin/perl -w
-use Text::Autoformat;
-autoformat {all => 1, mail => 1};
