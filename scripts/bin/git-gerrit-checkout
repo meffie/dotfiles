@@ -1,4 +1,0 @@
-#!/bin/bash
-set -e
-git gerrit-fetch "$1"
-git checkout FETCH_HEAD

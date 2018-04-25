@@ -32,7 +32,6 @@ link:
 	stow --target ~ git
 	stow --target ~ vim
 	stow --target ~ indent
-	stow --target ~ scripts
 	stow --target ~ python
 	stow --target ~ tmux
 	stow --target ~/.ssh ssh
@@ -44,7 +43,6 @@ unlink:
 	stow -D --target ~ git
 	stow -D --target ~ vim
 	stow -D --target ~ indent
-	stow -D --target ~ scripts
 	stow -D --target ~ python
 	stow -D --target ~/.ssh ssh
 	stow -D --target ~/.ssh keys
