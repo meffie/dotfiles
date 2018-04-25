@@ -1,0 +1,14 @@
+#!/usr/bin/python
+
+from __future__ import print_function
+from requests.auth import HTTPBasicAuth
+from pygerrit2.rest import GerritRestAPI
+import sys
+
+query = sys.argv[1:]
+if query:
+    rest = GerritRestAPI(url='https://gerrit.openafs.org')
+    url = "/changes/?q={}".format("%20".join(query))
+    changes = rest.get(url)
+    for c in changes:
+        print(c['_number'], c['subject'])
