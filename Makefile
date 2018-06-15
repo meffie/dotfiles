@@ -11,7 +11,8 @@ SAVE=\
   ~/.ssh/authorized_keys \
   ~/.ssh/config \
   ~/.vimrc \
-  ~/.pythonrc.py
+  ~/.pythonrc.py \
+  ~/.taskrc
 
 help:
 	@echo "usage: make <target>"
@@ -19,7 +20,7 @@ help:
 	@echo "  install - install links"
 	@echo "  remove  - remove links"
 
-install: keys link /etc/hosts
+install: link
 
 link:
 	./save-files.sh $(SAVE)
@@ -35,7 +36,6 @@ link:
 	stow --target ~ python
 	stow --target ~ tmux
 	stow --target ~/.ssh ssh
-	stow --target ~/.ssh keys
 	stow --target ~/.pip pip
 
 unlink:
@@ -45,7 +45,6 @@ unlink:
 	stow -D --target ~ indent
 	stow -D --target ~ python
 	stow -D --target ~/.ssh ssh
-	stow -D --target ~/.ssh keys
 	stop -D --target ~/.pip pip
 
 keys:
