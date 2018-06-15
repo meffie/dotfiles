@@ -1,4 +1,4 @@
-.PHONY: help install remove link unlink
+.PHONY: help install stow unstow
 
 KEYS=\
   mmeffie@scp.sinenomine.net:/afs/sinenomine.net/user/mmeffie/private/ssh/*
@@ -14,15 +14,9 @@ SAVE=\
   ~/.pythonrc.py \
   ~/.taskrc
 
-help:
-	@echo "usage: make <target>"
-	@echo "main targets:"
-	@echo "  install - install links"
-	@echo "  remove  - remove links"
+install: stow
 
-install: link
-
-link:
+stow:
 	./save-files.sh $(SAVE)
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	mkdir -p ~/.vim ~/.vim/.undo ~/.vim/.backup ~/.vim/.swap
@@ -37,8 +31,9 @@ link:
 	stow --target ~ tmux
 	stow --target ~/.ssh ssh
 	stow --target ~/.pip pip
+	stow --target ~ taskwarrior
 
-unlink:
+unstow:
 	stow -D --target ~ bash
 	stow -D --target ~ git
 	stow -D --target ~ vim
@@ -46,6 +41,7 @@ unlink:
 	stow -D --target ~ python
 	stow -D --target ~/.ssh ssh
 	stop -D --target ~/.pip pip
+	stow -D --target ~ taskwarrior
 
 keys:
 	mkdir -p keys
@@ -60,7 +56,7 @@ hosts/hosts: hosts/hosts.d/*
 /etc/hosts: hosts/hosts
 	sudo cp hosts/hosts /etc/hosts
 
-remove: unlink
+remove: unstow
 	perl -lne 'print unless /### BEGIN ###/ .. /### END ###/' /etc/hosts >hosts/hosts
 	sudo cp hosts/hosts /etc/hosts
 	rm -f hosts/hosts

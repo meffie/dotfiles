@@ -1,0 +1,50 @@
+# [Created by task 2.0.0 10/15/2016 12:13:56]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-faq',
+# 'man task-tutorial', 'man task-color', 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.task
+
+# Color theme (uncomment one to use)
+#include /usr/share/doc/task/rc/light-16.theme
+#include /usr/share/doc/task/rc/light-256.theme
+#include /usr/share/doc/task/rc/dark-16.theme
+#include /usr/share/doc/task/rc/dark-256.theme
+#include /usr/share/doc/task/rc/dark-red-256.theme
+#include /usr/share/doc/task/rc/dark-green-256.theme
+#include /usr/share/doc/task/rc/dark-blue-256.theme
+#include /usr/share/doc/task/rc/dark-violets-256.theme
+#include /usr/share/doc/task/rc/dark-yellow-green.theme
+#include /usr/share/doc/task/rc/dark-gray-256.theme
+#include /usr/local/share/doc/task/rc/holidays.en-US.rc
+
+uda.ticket.type=numeric
+uda.ticket.label=RT
+uda.kb.type=numeric
+uda.kb.label=KB
+report.list.columns=id,kb,ticket,project,priority,due,start.active,entry.age,description
+report.list.labels=ID,KB,RT,Project,Pri,Due,Active,Age,Description
+report.next.columns=id,kb,ticket,project,priority,due,start.active,entry.age,urgency,description
+report.next.labels=ID,KB,RT,Project,Pri,Due,A,Age,Urgency,Description
+report.all.columns=id,kb,ticket,status,project,priority,due,end,start.active,entry.age,description
+report.all.labels=ID,KB,RT,Status,Project,Pri,Due,Completed,Active,Age,Description
+
+report.tickets.description=RT Tickets
+report.tickets.columns=id,ticket,description
+report.tickets.labels=ID,RT,Desc
+report.tickets.sort=ticket+/
+report.tickets.filter=ticket.isnt:
+
+report.kb.description=KB Cards
+report.kb.columns=kb,id,status,description
+report.kb.labels.=KB,ID,Status,Desc
+report.kb.filter=kb.isnt:
+
