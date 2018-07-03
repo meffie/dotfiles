@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<filter>
+    <rule name="openafs-info.openafs.org" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="List-Id">OpenAFS Info/Discussion &lt;openafs-info.openafs.org&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/openafs-lists/info</move>
+        </action-list>
+    </rule>
+    <rule name="gerrit-openafs.gerrit.openafs.org" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="List-Id">&lt;gerrit-openafs.gerrit.openafs.org&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/openafs-lists/gerrit</move>
+        </action-list>
+    </rule>
+    <rule name="linux-afs.lists.infradead.org" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="List-Id">&quot;Linux AFS client discussion list.&quot; &lt;linux-afs.lists.infradead.org&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/lists/linux-afs</move>
+        </action-list>
+    </rule>
+    <rule name="robotframework-users.googlegroups.com" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="List-Id">&lt;robotframework-users.googlegroups.com&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/lists/robotframework</move>
+        </action-list>
+    </rule>
+    <rule name="users.buildbot.net" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="List-Id">User discussion &lt;users.buildbot.net&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/lists/buildbot</move>
+        </action-list>
+    </rule>
+    <rule name="users.buildbot.net" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="List-Id">User discussion &lt;users.buildbot.net&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/lists/buildbot</move>
+        </action-list>
+    </rule>
+    <rule name="ohiolinux-planning.lists.ohiolinux.org" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="List-Id">&lt;ohiolinux-planning.lists.ohiolinux.org&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/lists/OhioLinux</move>
+        </action-list>
+    </rule>
+    <rule name="morgan status notes" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="Subject">Morgan / SNA Status Notes</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/03-morgan-status</move>
+        </action-list>
+    </rule>
+    <rule name="mickey jokes" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="is" name="To">undisclosed-recipients: ;</match-header>
+            <match-header type="contains" name="From">Mickey Lane &lt;chiliwhiz@gmail.com&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <delete />
+        </action-list>
+    </rule>
+    <rule name="buildbot success" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="Subject">buildbot success</match-header>
+            <match-header type="contains" name="From">&lt;buildbot@openafs.MIT.EDU&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/openafs-lists/buildbot</move>
+        </action-list>
+    </rule>
+    <rule name="commits" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="List-Id">OpenAFS CVS Commit Messages &lt;openafs-cvs.openafs.org&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/openafs-lists/commits</move>
+        </action-list>
+    </rule>
+    <rule name="SNA AFS Report" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="Subject">SNA AFS Report</match-header>
+            <match-header type="contains" name="From">root &lt;root@sinenomine.net&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/08-sna-afs-report</move>
+        </action-list>
+    </rule>
+    <rule name="rt" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="From">via RT</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/01-rt</move>
+        </action-list>
+    </rule>
+    <rule name="kerberos.mit.edu" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="List-Id">The Kerberos Authentication System Mailing List &lt;kerberos.mit.edu&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/lists/kerberos</move>
+        </action-list>
+    </rule>
+    <rule name="openafs-devel.openafs.org" timing="any" enabled="true">
+        <condition-list bool="and">
+            <match-header type="contains" name="List-Id">OpenAFS Developers &lt;openafs-devel.openafs.org&gt;</match-header>
+        </condition-list>
+        <action-list>
+            <move>#imap/mmeffie@sinenomine.net/INBOX/openafs-lists/devel</move>
+        </action-list>
+    </rule>
+</filter>

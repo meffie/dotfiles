@@ -13,16 +13,17 @@ stow: save dirs
 
 save:
 	./save-files.sh \
-    ~/.bash_aliases \
-    ~/.bashrc \
-    ~/bin \
-    ~/.gitconfig \
-    ~/.indent.pro \
-    ~/.ssh/authorized_keys \
-    ~/.ssh/config \
-    ~/.vimrc \
-    ~/.pythonrc.py \
-    ~/.taskrc
+	~/.bash_aliases \
+	~/.bashrc \
+	~/bin \
+	~/.gitconfig \
+	~/.indent.pro \
+	~/.ssh/authorized_keys \
+	~/.ssh/config \
+	~/.vimrc \
+	~/.pythonrc.py \
+	~/.taskrc \
+	~/.sylpheed-2.0/filter.xml
 
 dirs:
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
