@@ -16,17 +16,24 @@
 	s = status
 	b = branch
 	d = diff
-	gf = gerrit-fetch
 	amend = commit --amend
 	mend = commit --amend --no-edit
 	nuke = clean -f -d -x -q
 	staged = diff --cached
-	# git git <command>
 	git = !exec git
-	#
 	# diff tool
-	#
 	#meld = !/home/mmeffie/bin/git-meld.pl
+	#---------------------------------------------------------
+    # git-gerrit aliases
+    #
+    # usage: git gerrit-checkout <number>
+    #        git gerrit-todo [branch]   (default: master)
+    #
+    gerrit-checkout = gerrit-fetch --no-branch --checkout
+	gerrit-todo = "!f() {\
+        git-gerrit-query --format='{number} {subject}'\
+        status:open NOT label:Code-Review=-2 NOT reviewer:mmeffie@sinenomine.net \
+        branch:${1-master}; }; f"
 [color]
 	ui = true
 [giggle]
