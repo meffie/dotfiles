@@ -1,5 +1,9 @@
 .PHONY: help stow unstow save dirs
 
+all: stow
+install: stow
+uninstall: unstow
+
 stow: save dirs
 	stow --target ~ bash
 	stow --target ~ git
