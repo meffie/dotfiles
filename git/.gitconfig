@@ -34,6 +34,7 @@
         git-gerrit-query --format='{number} {subject}'\
         status:open NOT label:Code-Review=-2 NOT reviewer:mmeffie@sinenomine.net \
         branch:${1-master}; }; f"
+    gerrit-topics = "git gerrit-query --format='{topic}' status:open branch:master | sort -u"
 [color]
 	ui = true
 [giggle]

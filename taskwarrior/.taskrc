@@ -30,6 +30,8 @@ uda.ticket.type=numeric
 uda.ticket.label=RT
 uda.kb.type=numeric
 uda.kb.label=KB
+uda.gerrit.type=numeric
+uda.gerrit.label=gerrit
 report.list.columns=id,kb,ticket,project,priority,due,start.active,entry.age,description
 report.list.labels=ID,KB,RT,Project,Pri,Due,Active,Age,Description
 report.next.columns=id,kb,ticket,project,priority,due,start.active,entry.age,urgency,description
@@ -45,8 +47,13 @@ report.tickets.filter=ticket.isnt:
 
 report.kb.description=KB Cards
 report.kb.columns=kb,id,status,description
-report.kb.labels.=KB,ID,Status,Desc
+report.kb.labels=KB,ID,Status,Desc
 report.kb.filter=kb.isnt:
+
+report.gerrit.description=Gerrits
+report.gerrit.columns=gerrit,id,kb,ticket,status,description
+report.gerrit.labels=Gerrit,ID,KB,RT,Status,Desc
+report.gerrit.filter=gerrit.isnt:
 
 # machine local config
 include ~/.tasklocalrc
