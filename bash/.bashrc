@@ -35,6 +35,20 @@ fi
 # Enable vi keybinding in bash
 set -o vi
 
+# Start and stop ssh-agent as needed.
+function _ssh_add() {
+    IDENT=${1-mmeffie-sna2}
+    ASKPASS="/tmp/_ssh_askpass_$$.sh"
+    echo "#!/bin/sh" >$ASKPASS
+    echo "/usr/bin/pass ssh/$IDENT" >>$ASKPASS
+    chmod +x $ASKPASS
+    SSH_ASKPASS="$ASKPASS" DISPLAY=:0 ssh-add $HOME/.ssh/$IDENT </dev/null
+    rm $ASKPASS
+}
+
+alias start-agent='test -z "$SSH_AGENT_PID" && eval `ssh-agent` && _ssh_add'
+alias stop-agent='test -z "$SSH_AGENT_PID" || eval `ssh-agent -k`'
+
 # Custom aliases, functions, and env vars
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
