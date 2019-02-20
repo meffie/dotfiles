@@ -4,6 +4,10 @@ alias lookfor='apt-cache search'
 alias gimme='sudo apt-get -y install'
 alias devlab='/usr/local/bin/sna-hosts -d devlab.sinenomine.net -n 192.168.96.4'
 
+# command line clipboard
+alias xcut='xsel -ib'
+alias xpaste='xsel -ob'
+
 # wiki
 alias iki='ikiwiki --setup ~/openafs-wiki.setup --rebuild'
 
