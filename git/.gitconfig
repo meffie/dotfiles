@@ -21,13 +21,13 @@
 	nuke = clean -f -d -x -q
 	staged = diff --cached
 	git = !exec git
-	# diff tool
-	#meld = !/home/mmeffie/bin/git-meld.pl
+
 	#---------------------------------------------------------
     # git-gerrit aliases
     #
     # usage: git gerrit-checkout <number>
     #        git gerrit-todo [branch]   (default: master)
+    #        git gerrit-topics
     #
     gerrit-checkout = gerrit-fetch --no-branch --checkout
 	gerrit-todo = "!f() {\
