@@ -18,9 +18,6 @@ stow: save dirs
 
 save:
 	./save-files.sh \
-	  ~/.bash_aliases \
-	  ~/.bash_env \
-	  ~/.bash_functions \
 	  ~/.bashrc \
 	  ~/.gitconfig \
 	  ~/.indent.pro \
@@ -32,6 +29,7 @@ save:
 	  ~/.sylpheed-2.0/filter.xml
 
 dirs:
+	mkdir -p ~/.bashd
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	mkdir -p ~/.vim ~/.vim/.undo ~/.vim/.backup ~/.vim/.swap
 	mkdir -p ~/.pip

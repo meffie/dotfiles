@@ -1,0 +1,1 @@
+alias cs='cscope -R'

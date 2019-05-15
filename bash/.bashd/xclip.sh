@@ -1,5 +1,10 @@
+# Command line clipboard.
 
-xcutpath() {
+alias xcut='xsel -ib'
+alias xpaste='xsel -ob'
+
+# Save the full path of a file to the clipboard.
+function xcutpath() {
     if [ "x$1" == "x" ]; then
         echo "usage: xcutpath <filename>"
     else
