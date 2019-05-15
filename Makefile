@@ -19,6 +19,8 @@ stow: save dirs
 save:
 	./save-files.sh \
 	  ~/.bash_aliases \
+	  ~/.bash_env \
+	  ~/.bash_functions \
 	  ~/.bashrc \
 	  ~/.gitconfig \
 	  ~/.indent.pro \
