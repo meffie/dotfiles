@@ -46,8 +46,8 @@ function _ssh_add() {
     rm $ASKPASS
 }
 
-alias start-agent='test -z "$SSH_AGENT_PID" && eval `ssh-agent` && _ssh_add'
-alias stop-agent='test -z "$SSH_AGENT_PID" || eval `ssh-agent -k`'
+alias ssh-agent-start='test -z "$SSH_AGENT_PID" && eval `ssh-agent` && _ssh_add'
+alias ssh-agent-stop='test -z "$SSH_AGENT_PID" || eval `ssh-agent -k`'
 
 # Custom aliases, functions, and env vars
 if [ -f ~/.bash_aliases ]; then
