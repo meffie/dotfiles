@@ -3,6 +3,8 @@
 	email = mmeffie@sinenomine.net
 [core]
 	editor = vim
+[log]
+    decorate = auto
 [alias]
 	#
 	# short-cuts
