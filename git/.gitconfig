@@ -28,14 +28,12 @@
     # git-gerrit aliases
     #
     # usage: git gerrit-checkout <number>
-    #        git gerrit-todo [branch]   (default: master)
+    #        git gerrit-todo [<branch>] [<userid>]
     #        git gerrit-topics
     #
     gerrit-checkout = gerrit-fetch --no-branch --checkout
-	gerrit-todo = "!f() {\
-        git-gerrit-query --format='{number} {subject}'\
-        status:open NOT label:Code-Review=-2 NOT reviewer:mmeffie@sinenomine.net \
-        branch:${1-master}; }; f"
+    gerrit-todo = "!f() { git-gerrit-query \"branch:${1-master} is:open "\
+                  "NOT label:Code-Review=-2 NOT label:Code-Review>=+1,${2-$USER}\"; }; f"
     gerrit-topics = "git gerrit-query --format='{topic}' status:open branch:master | sort -u"
 [color]
 	ui = true
