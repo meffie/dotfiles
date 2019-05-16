@@ -14,7 +14,6 @@ stow: save dirs
 	stow --target ~ taskwarrior
 	stow --target ~ ssh
 	stow --target ~ pip
-	stow --target ~ sylpheed
 
 save:
 	./save-files.sh \
@@ -25,15 +24,13 @@ save:
 	  ~/.ssh/config \
 	  ~/.vimrc \
 	  ~/.pythonrc.py \
-	  ~/.taskrc \
-	  ~/.sylpheed-2.0/filter.xml
+	  ~/.taskrc
 
 dirs:
 	mkdir -p ~/.bashd
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	mkdir -p ~/.vim ~/.vim/.undo ~/.vim/.backup ~/.vim/.swap
 	mkdir -p ~/.pip
-	mkdir -p ~/.sylpheed-2.0
 
 unstow:
 	stow -D --target ~ bash
@@ -44,4 +41,3 @@ unstow:
 	stow -D --target ~ taskwarrior
 	stow -D --target ~ ssh
 	stop -D --target ~ pip
-	stow -D --target ~ sylpheed
