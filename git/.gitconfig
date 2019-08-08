@@ -35,6 +35,7 @@
     gerrit-todo = "!f() { git-gerrit-query \"branch:${1-master} is:open "\
                   "NOT label:Code-Review=-2 NOT label:Code-Review>=+1,${2-$USER}\"; }; f"
     gerrit-topics = "git gerrit-query --format='{topic}' status:open branch:master | sort -u"
+    gerrit-unverified = gerrit-query status:open NOT label:Verified
 [color]
 	ui = true
 [giggle]
