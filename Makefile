@@ -12,7 +12,6 @@ stow: save dirs
 	stow --target ~ python
 	stow --target ~ tmux
 	stow --target ~ taskwarrior
-	stow --target ~ ssh
 	stow --target ~ pip
 
 save:
@@ -20,8 +19,6 @@ save:
 	  ~/.bashrc \
 	  ~/.gitconfig \
 	  ~/.indent.pro \
-	  ~/.ssh/authorized_keys \
-	  ~/.ssh/config \
 	  ~/.vimrc \
 	  ~/.pythonrc.py \
 	  ~/.taskrc
@@ -39,5 +36,4 @@ unstow:
 	stow -D --target ~ indent
 	stow -D --target ~ python
 	stow -D --target ~ taskwarrior
-	stow -D --target ~ ssh
 	stop -D --target ~ pip
