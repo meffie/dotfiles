@@ -14,6 +14,7 @@ stow: save dirs
 	stow --target ~ taskwarrior
 	stow --target ~ pip
 	stow --target ~ virt-lab
+	test -f ~/.ssh/config || cp ssh/.ssh/config ~/.ssh/config
 
 save:
 	./save-files.sh \
