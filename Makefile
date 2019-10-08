@@ -13,6 +13,7 @@ stow: save dirs
 	stow --target ~ tmux
 	stow --target ~ taskwarrior
 	stow --target ~ pip
+	stow --target ~ virt-lab
 
 save:
 	./save-files.sh \
@@ -21,7 +22,8 @@ save:
 	  ~/.indent.pro \
 	  ~/.vimrc \
 	  ~/.pythonrc.py \
-	  ~/.taskrc
+	  ~/.taskrc \
+	  ~/.virt-lab.cfg
 
 dirs:
 	mkdir -p ~/.bashd
