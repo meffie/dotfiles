@@ -36,6 +36,12 @@
                   "NOT label:Code-Review=-2 NOT label:Code-Review>=+1,${2-$USER}\"; }; f"
     gerrit-topics = "git gerrit-query --format='{topic}' status:open branch:master | sort -u"
     gerrit-unverified = gerrit-query status:open NOT label:Verified
+
+    # Setup openafs repos
+    # Note: git init --template fails to expand '~' !?
+    clone-openafs = "!git clone --template=$HOME/.git_openafs git://git.openafs.org/openafs.git"
+    init-openafs = "!mv .git/config .git/config.bak && git init --template=~/.git_openafs"
+
 [color]
 	ui = true
 [giggle]
