@@ -1,0 +1,31 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[gerrit]
+	host = gerrit.openafs.org
+	project = openafs
+	add-change-id = yes
+[remote "origin"]
+	url = git://git.openafs.org/openafs.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[remote "github"]
+	url = git@github.com:meffie/openafs.git
+	fetch = +refs/heads/*:refs/remotes/github/*
+[remote "gerrit"]
+	url = mmeffie@gerrit.openafs.org:openafs.git
+	fetch = +refs/heads/*:refs/remotes/gerrit/*
+    fetch = +refs/changes/*:refs/remotes/origin/changes/*
+[remote "scm"]
+	url = gitosis@scm.devlab.sinenomine.net:sna-openafs.git
+	fetch = +refs/heads/*:refs/remotes/scm/*
+[remote "ms"]
+	url = gitosis@scm.devlab.sinenomine.net:ms-openafs.git
+	fetch = +refs/heads/*:refs/remotes/ms/*
+[remote "ecsn"]
+	url = gitosis@scm.devlab.sinenomine.net:ecsn-openafs.git
+	fetch = +refs/heads/*:refs/remotes/ecsn/*
