@@ -4,11 +4,11 @@
 	add-change-id = yes
 [remote "upstream"]
 	url = git://git.openafs.org/openafs.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
+	fetch = +refs/heads/*:refs/remotes/upstream/*
 [remote "gerrit"]
 	url = mmeffie@gerrit.openafs.org:openafs.git
 	fetch = +refs/heads/*:refs/remotes/gerrit/*
-	fetch = +refs/changes/*:refs/remotes/origin/changes/*
+	fetch = +refs/changes/*:refs/remotes/gerrit/changes/*
 [remote "github"]
 	url = git@github.com:meffie/openafs.git
 	fetch = +refs/heads/*:refs/remotes/github/*
