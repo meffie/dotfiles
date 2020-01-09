@@ -1,4 +1,5 @@
 .PHONY: help stow unstow save dirs
+HOSTNAME=$(shell uname -n)
 
 all: stow
 install: stow
@@ -14,6 +15,7 @@ stow: save dirs
 	stow --target ~ taskwarrior
 	stow --target ~ pip
 	stow --target ~ virt-lab
+	test -d host-specific/$(HOSTNAME) && cd host-specific/$(HOSTNAME) && stow --target ~ virt-lab
 	test -f ~/.ssh/config || cp ssh/.ssh/config ~/.ssh/config && chmod 600 ~/.ssh/config
 
 save:
@@ -23,14 +25,14 @@ save:
 	  ~/.indent.pro \
 	  ~/.vimrc \
 	  ~/.pythonrc.py \
-	  ~/.taskrc \
-	  ~/.virt-lab.cfg
+	  ~/.taskrc
 
 dirs:
 	mkdir -p ~/.bashd
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	mkdir -p ~/.vim ~/.vim/.undo ~/.vim/.backup ~/.vim/.swap
 	mkdir -p ~/.pip
+	mkdir -p ~/.virt-lab
 
 unstow:
 	stow -D --target ~ bash
