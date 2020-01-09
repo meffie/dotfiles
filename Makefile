@@ -16,7 +16,9 @@ stow: save dirs
 	stow --target ~ taskwarrior
 	stow --target ~ pip
 	stow --target ~ virt-lab
-	test -d host-specific/$(HOSTNAME) && cd host-specific/$(HOSTNAME) && stow --target ~ virt-lab
+	if [ -d host-specific/$(HOSTNAME) ]; then \
+		stow --target ~ --dir host-specific/$(HOSTNAME) virt-lab; \
+	fi
 	test -f ~/.ssh/config || cp ssh/.ssh/config ~/.ssh/config && chmod 600 ~/.ssh/config
 
 save:
@@ -45,4 +47,6 @@ unstow:
 	stow -D --target ~ taskwarrior
 	stow -D --target ~ pip
 	stow -D --target ~ virt-lab
-	test -d host-specific/$(HOSTNAME) && cd host-specific/$(HOSTNAME) && stow -D --target ~ virt-lab
+	if [ -d host-specific/$(HOSTNAME) ]; then \
+		stow -D --target ~ --dir host-specific/$(HOSTNAME) virt-lab; \
+	fi
