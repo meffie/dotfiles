@@ -43,6 +43,6 @@ unstow:
 	stow -D --target ~ indent
 	stow -D --target ~ python
 	stow -D --target ~ taskwarrior
-	stop -D --target ~ pip
+	stow -D --target ~ pip
 	stow -D --target ~ virt-lab
 	test -d host-specific/$(HOSTNAME) && cd host-specific/$(HOSTNAME) && stow -D --target ~ virt-lab
