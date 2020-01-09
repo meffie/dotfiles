@@ -6,6 +6,7 @@ install: stow
 uninstall: unstow
 
 stow: save dirs
+	stow --target ~ ansible
 	stow --target ~ bash
 	stow --target ~ git
 	stow --target ~ vim
@@ -35,6 +36,7 @@ dirs:
 	mkdir -p ~/.virt-lab
 
 unstow:
+	stow -D --target ~ ansible
 	stow -D --target ~ bash
 	stow -D --target ~ git
 	stow -D --target ~ vim
@@ -42,3 +44,5 @@ unstow:
 	stow -D --target ~ python
 	stow -D --target ~ taskwarrior
 	stop -D --target ~ pip
+	stow -D --target ~ virt-lab
+	test -d host-specific/$(HOSTNAME) && cd host-specific/$(HOSTNAME) && stow -D --target ~ virt-lab
