@@ -15,7 +15,7 @@ stow: save dirs
 	stow --target ~ tmux
 	stow --target ~ taskwarrior
 	stow --target ~ pip
-	stow --target ~ virt-lab
+	#stow --target ~ virt-lab
 	if [ -d host-specific/$(HOSTNAME) ]; then \
 		stow --target ~ --dir host-specific/$(HOSTNAME) virt-lab; \
 	fi
