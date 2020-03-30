@@ -1,6 +1,7 @@
 [gerrit]
 	host = gerrit.openafs.org
 	project = openafs
+    remote = gerrit
 	add-change-id = yes
     checkoutbranch = gerrit/{number}
     fetchbranch = gerrit/{number}

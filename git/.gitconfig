@@ -29,11 +29,14 @@
     #
     # usage: git gerrit-todo [<branch>] [<userid>]
     #        git gerrit-topics
+    #        git gerrit-unverified
+    #        git gerrit-add-reviewers <number>
     #
     gerrit-todo = "!f() { git-gerrit-query \"branch:${1-master} is:open "\
                   "NOT label:Code-Review=-2 NOT label:Code-Review>=+1,${2-$USER}\"; }; f"
-    gerrit-topics = "git gerrit-query --format='{topic}' status:open branch:master | sort -u"
+    gerrit-topics = "!git gerrit-query --format='{topic}' status:open branch:master | sort -u"
     gerrit-unverified = gerrit-query status:open NOT label:Verified
+    gerrit-add-reviewers = gerrit-review --add adeason --add mvitale --add mbarbosa --add cwills
 
     # Setup openafs repos:
     openafs-clone = clone git://git.openafs.org/openafs.git
