@@ -17,7 +17,8 @@ stow: save dirs
 	stow --target ~ pip
 	stow --target ~ virt-lab
 	if [ -d host-specific/$(HOSTNAME) ]; then \
-		stow --target ~ --dir host-specific/$(HOSTNAME) virt-lab; \
+	  stow --target ~ --dir host-specific/$(HOSTNAME) kvm-install-vm; \
+	  stow --target ~ --dir host-specific/$(HOSTNAME) virt-lab; \
 	fi
 	test -f ~/.ssh/config || cp ssh/.ssh/config ~/.ssh/config && chmod 600 ~/.ssh/config
 
@@ -48,5 +49,6 @@ unstow:
 	stow -D --target ~ pip
 	stow -D --target ~ virt-lab
 	if [ -d host-specific/$(HOSTNAME) ]; then \
-		stow -D --target ~ --dir host-specific/$(HOSTNAME) virt-lab; \
+	   stow -D --target ~ --dir host-specific/$(HOSTNAME) virt-lab; \
+	   stow -D --target ~ --dir host-specific/$(HOSTNAME) kvm-install-vm; \
 	fi

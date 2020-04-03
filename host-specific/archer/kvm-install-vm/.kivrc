@@ -1,0 +1,11 @@
+PUBKEY=/home/mmeffie/.ssh/mmeffie-sna2.pub
+BRIDGE=vlbr0
+GRAPHICS=auto
+NETWORK_MODEL=""
+NETWORK_EXTRA=""
+DISK_FORMAT=qcow2
+DISK_BUS=""
+DISK_EXTRA=""
+GRAPHICS_LISTEN=localhost
+GRAPHICS_EXTRA=""
+VIRT_INSTALL_EXTRA="--hvm"
