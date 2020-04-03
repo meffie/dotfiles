@@ -1,52 +1,42 @@
-.PHONY: help stow unstow save dirs
-HOSTNAME=$(shell uname -n)
+.PHONY: all install uninstall stow unstow save dirs
 
-all: stow
+HOSTNAME=$(shell uname -n)
+PACKAGES=ansible bash git indent pip python taskwarrior tmux vim virt-lab
+DIRS=.bashd .ssh .vim .vim/.undo .vim/.backup .vim/.swap .pip .virt-lab
+FILES=.bashrc .gitconfig .indent.pro .pythonrc.py .taskrc .vimrc
+
 install: stow
 uninstall: unstow
 
-stow: save dirs
-	stow --target ~ ansible
-	stow --target ~ bash
-	stow --target ~ git
-	stow --target ~ vim
-	stow --target ~ indent
-	stow --target ~ python
-	stow --target ~ tmux
-	stow --target ~ taskwarrior
-	stow --target ~ pip
-	stow --target ~ virt-lab
-	if [ -d host-specific/$(HOSTNAME) ]; then \
-	  stow --target ~ --dir host-specific/$(HOSTNAME) kvm-install-vm; \
+stow:
+	/bin/bash save-files.sh $(FILES)
+	@for dir in $(DIRS); do \
+	    if [ ! -d $(HOME)/$$dir ]; then \
+	        echo making directory $(HOME)/$$dir; \
+	        mkdir -p $(HOME)/$$dir; \
+	    fi; \
+	done
+	@for package in $(PACKAGES); do \
+	    echo stowing $$package; \
+	    stow --target=$(HOME) $$package; \
+	done
+	@if [ -d host-specific/$(HOSTNAME) ]; then \
+	    echo stowing kvm-install-vm; \
+	    stow --target=$(HOME) --dir=host-specific/$(HOSTNAME) kvm-install-vm; \
 	fi
-	test -f ~/.ssh/config || cp ssh/.ssh/config ~/.ssh/config && chmod 600 ~/.ssh/config
-
-save:
-	./save-files.sh \
-	  ~/.bashrc \
-	  ~/.gitconfig \
-	  ~/.indent.pro \
-	  ~/.vimrc \
-	  ~/.pythonrc.py \
-	  ~/.taskrc
-
-dirs:
-	mkdir -p ~/.bashd
-	mkdir -p ~/.ssh && chmod 700 ~/.ssh
-	mkdir -p ~/.vim ~/.vim/.undo ~/.vim/.backup ~/.vim/.swap
-	mkdir -p ~/.pip
-	mkdir -p ~/.virt-lab
+	@echo Setup ssh configuration
+	if [ ! -f ~/.ssh/config ]; then \
+	    cp ssh/.ssh/config $(HOME)/.ssh/config; \
+	fi
+	chmod 700 $(HOME)/.ssh
+	chmod 600 $(HOME)/.ssh/config
 
 unstow:
-	stow -D --target ~ ansible
-	stow -D --target ~ bash
-	stow -D --target ~ git
-	stow -D --target ~ vim
-	stow -D --target ~ indent
-	stow -D --target ~ python
-	stow -D --target ~ taskwarrior
-	stow -D --target ~ pip
-	stow -D --target ~ virt-lab
-	if [ -d host-specific/$(HOSTNAME) ]; then \
-	   stow -D --target ~ --dir host-specific/$(HOSTNAME) kvm-install-vm; \
+	@for package in $(PACKAGES); do \
+	    echo unstowing $$package; \
+	    stow -D --target=$(HOME) $$package; \
+	done
+	@if [ -d host-specific/$(HOSTNAME) ]; then \
+	    echo unstowing kvm-install-vm; \
+	    stow -D --target=$(HOME) --dir=host-specific/$(HOSTNAME) kvm-install-vm; \
 	fi
