@@ -1,4 +1,4 @@
-.PHONY: all install uninstall stow unstow ssh-config
+.PHONY: install uninstall stow unstow ssh-config
 
 PACKAGES=ansible bash git indent kvm-install-vm pip python taskwarrior \
          tmux vim virt-lab
