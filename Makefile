@@ -30,7 +30,7 @@ unstow:
 ssh-config:
 	@echo Setup ssh configuration
 	@if [ ! -f $(HOME)/.ssh/config ]; then \
-	  echo copying ssh/.$(HOME)/.ssh/config to $(HOME)/.ssh \
+	  echo copying ssh/.$(HOME)/.ssh/config to $(HOME)/.ssh; \
 	  cp ssh/.ssh/config $(HOME)/.ssh/config; \
 	fi
 	chmod 700 $(HOME)/.ssh
