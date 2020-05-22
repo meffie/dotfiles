@@ -13,6 +13,9 @@
 # Files
 data.location=~/.task
 
+# Disable nag messages.
+nag=Pitter patter
+
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
 #include /usr/share/doc/task/rc/light-256.theme
