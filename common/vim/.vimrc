@@ -7,7 +7,7 @@ syntax on           " enable syntax highlighting
 " -- Appearance --
 colorscheme evening " Just a preference
 set hlsearch        " Highlight the last search results.
-set colorcolumn=80
+" set colorcolumn=80
 
 " -- Whitespace --
 set tabstop=4       " Number of visual spaces per TAB.

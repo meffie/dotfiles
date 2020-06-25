@@ -1,1 +1,1 @@
-alias devlab='sna-hosts -q -n -d devlab.sinenomine.net -n 192.168.96.4'
+alias devlab='sna-hosts -n -d devlab.sinenomine.net -n 192.168.96.4'
