@@ -1,3 +1,4 @@
 PUBKEY=/home/mmeffie/.ssh/mmeffie-sna2.pub
 BRIDGE=vlbr0
 DOMAIN=example.com
+VIRT_INSTALL_EXTRA="--channel unix,mode=bind,path=/var/lib/libvirt/qemu/guest01.agent,target_type=virtio,name=org.qemu.guest_agent.0"
