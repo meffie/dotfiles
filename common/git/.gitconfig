@@ -20,7 +20,7 @@
 	d = diff
 	amend = commit --amend
 	mend = commit --amend --no-edit
-	nuke = clean -f -d -x -q
+	nuke = clean -f -d -x -q --exclude=.vscode --exclude=.venv
 	staged = diff --cached
 	git = !exec git
 
